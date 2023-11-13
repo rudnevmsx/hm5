@@ -6,16 +6,15 @@ public abstract class Animal {
     protected int speedSwim;
     protected int stamina;
 
-    public void run(int distance){
-        double time;
+    public double run(int distance){
         if (distance <= this.stamina){
-            time = (double) distance / this.speedRun;
+            double time = (double) distance / this.speedRun;
             this.stamina = stamina - distance;
-            System.out.println(getClass().getSimpleName() + " пробежала " + distance + " метров за " + time + " секунд");
-            System.out.println("Остаток выносливости: " + this.stamina);
+            return time;
         }
         else {
             System.out.println("У животного появилось состояние усталости");
+            return 0;
         }
     }
 
@@ -27,5 +26,5 @@ public abstract class Animal {
         System.out.println("Выносливость: " + stamina);
     }
 
-    public abstract void swim(int distance);
+    public abstract double swim(int distance);
 }

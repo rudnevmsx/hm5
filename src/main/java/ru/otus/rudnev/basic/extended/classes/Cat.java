@@ -8,9 +8,8 @@ public class Cat extends Animal {
         this.stamina = stamina;
     }
     @Override
-    public void swim(int distance){
-        System.out.println("Коты не умеют плавать!");
+    public double swim(int distance){
+        return 0;
     }
-
 
 }
