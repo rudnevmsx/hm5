@@ -9,15 +9,13 @@ public class Horse extends Animal {
     }
     @Override
     public double swim(int distance){
-        if (distance <= this.stamina){
-            double time = (double) distance / this.speedSwim;
-            this.stamina = stamina - (distance * 4);
-            return time;
-        }
-        else {
+        int swimmingStaminaCost = 4 * distance;
+        if (swimmingStaminaCost > stamina) {
             System.out.println("У животного появилось состояние усталости");
-            return 0;
+            return -1;
         }
+        stamina -= swimmingStaminaCost;
+        return distance / speedSwim;
     }
 
 
